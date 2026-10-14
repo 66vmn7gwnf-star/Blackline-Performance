@@ -40,3 +40,77 @@ if (menuButton && mobileMenu && overlay) {
     });
 
 }
+
+/* =========================================
+   BUILD FORM
+========================================= */
+
+const buildForm = document.getElementById("build-form");
+const buildStatus = document.getElementById("build-status");
+
+
+if (buildForm) {
+
+    buildForm.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+
+        const submitButton =
+            buildForm.querySelector(".contact-form__submit");
+
+
+        submitButton.disabled = true;
+
+        submitButton.innerHTML = "Sending...";
+
+
+        try {
+
+            const response = await fetch(
+                buildForm.action,
+                {
+                    method: "POST",
+
+                    body: new FormData(buildForm),
+
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+
+            if (response.ok) {
+
+                window.location.href =
+                    "confirmation.html";
+
+            } else {
+
+                buildStatus.textContent =
+                    "Something went wrong. Please try again.";
+
+                submitButton.disabled = false;
+
+                submitButton.innerHTML =
+                    'Start the Conversation <span>→</span>';
+
+            }
+
+        } catch (error) {
+
+            buildStatus.textContent =
+                "Unable to send your request. Please try again.";
+
+            submitButton.disabled = false;
+
+            submitButton.innerHTML =
+                'Start the Conversation <span>→</span>';
+
+        }
+
+    });
+
+}
+
