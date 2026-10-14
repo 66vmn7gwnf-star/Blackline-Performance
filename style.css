@@ -705,3 +705,317 @@ a {
     }
 
 }
+
+/* =========================================
+   FEATURED BUILDS
+========================================= */
+
+.builds {
+    padding: 140px 6%;
+    background: #e8e5df;
+    color: #111111;
+}
+
+
+.builds__heading {
+    display: grid;
+    grid-template-columns: 1fr 0.65fr;
+    gap: 80px;
+
+    margin-bottom: 80px;
+}
+
+
+.builds h2 {
+    font-size: clamp(60px, 8vw, 110px);
+    line-height: 0.84;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+}
+
+
+.builds h2 span {
+    color: #e04b35;
+}
+
+
+.builds__intro {
+    max-width: 480px;
+    align-self: end;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    color: #666666;
+}
+
+
+/* =========================================
+   BUILD GRID
+========================================= */
+
+.builds__grid {
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 25px;
+}
+
+
+/* BUILD CARD */
+
+.build-card {
+    position: relative;
+}
+
+
+.build-card--large {
+    grid-row: span 2;
+}
+
+
+.build-card__image {
+    position: relative;
+    width: 100%;
+    height: 390px;
+
+    overflow: hidden;
+
+    background: #222222;
+}
+
+
+.build-card--large .build-card__image {
+    height: 805px;
+}
+
+
+.build-card__image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.5),
+        transparent 45%
+    );
+
+    pointer-events: none;
+}
+
+
+.build-card__image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+}
+
+
+.build-card:hover .build-card__image img {
+    transform: scale(1.04);
+}
+
+
+/* NUMBER */
+
+.build-card__number {
+    position: absolute;
+
+    top: 25px;
+    left: 25px;
+
+    z-index: 2;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+
+    color: #ffffff;
+}
+
+
+/* CARD CONTENT */
+
+.build-card__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 25px 0 40px;
+}
+
+
+.build-card__category {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+
+    color: #888888;
+}
+
+
+.build-card h3 {
+    font-size: clamp(24px, 3vw, 38px);
+    line-height: 1;
+
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+}
+
+
+.build-card__link {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    color: #111111;
+
+    transition: color 0.3s ease;
+}
+
+
+.build-card__link span {
+    color: #e04b35;
+    font-size: 18px;
+}
+
+
+.build-card__link:hover {
+    color: #e04b35;
+}
+
+
+/* FOOTER */
+
+.builds__footer {
+    padding-top: 25px;
+
+    border-top: 1px solid #c9c6c0;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+
+    color: #888888;
+}
+
+
+/* =========================================
+   BUILDS RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .builds {
+        padding: 110px 6%;
+    }
+
+
+    .builds__heading {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+
+    .builds__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .build-card--large {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+
+
+    .build-card--large .build-card__image {
+        height: 550px;
+    }
+
+
+    .build-card__image {
+        height: 350px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .builds {
+        padding: 90px 25px;
+    }
+
+
+    .builds__heading {
+        margin-bottom: 55px;
+    }
+
+
+    .builds__grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+
+    .build-card--large {
+        grid-column: auto;
+    }
+
+
+    .build-card--large .build-card__image,
+    .build-card__image {
+        height: 430px;
+    }
+
+
+    .build-card__content {
+        padding: 20px 0 40px;
+        align-items: flex-end;
+    }
+
+
+    .build-card h3 {
+        font-size: 27px;
+    }
+
+
+    .build-card__link {
+        font-size: 9px;
+    }
+
+
+    .builds__footer {
+        gap: 20px;
+        line-height: 1.5;
+    }
+
+
+    .builds__footer span {
+        text-align: right;
+    }
+
+}
